@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FirebaseModule } from './modules/firebase/firebase.module';
+import { FirebaseModule } from './firebase/firebase.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { NavigationModule } from './navigation/navigation.module';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FirebaseModule
+    FirebaseModule,
+    AuthenticationModule, 
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
