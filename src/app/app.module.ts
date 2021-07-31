@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { NavigationModule } from './navigation/navigation.module';
+import { DailyPlanModule } from './daily-plan/daily-plan.module';
+import { ChildModule } from './child/child.module';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { NavigationModule } from './navigation/navigation.module';
     AppRoutingModule,
     FirebaseModule,
     AuthenticationModule, 
-    NavigationModule
+    NavigationModule,
+    DailyPlanModule,
+    ChildModule
   ],
   providers: [],
   bootstrap: [AppComponent]
