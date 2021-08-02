@@ -30,13 +30,6 @@ export class FirebaseService {
     return firebase.default.firestore.FieldValue.serverTimestamp();
   }
 
-  private prepareBaseObject(object: Base): any {
-    if(object !== null) {
-      object.updatedDateTime = this.currentTime.toString()
-    }
-    return object;
-  }
-
   public col$<T>(ref: CollectionPredicate<T>, queryFn?: any): Observable<T[]> {
     return this.col(ref, queryFn).valueChanges();
   }
@@ -48,14 +41,12 @@ export class FirebaseService {
   }
 
   public update<T>(ref: DocPredicate<T>, key: string, data: any) {
-    data = this.prepareBaseObject(data);
     return this.doc(ref + `/${key}`).update({
       ...data
     });
   }
 
   public set<T>(ref: DocPredicate<T>, data: any, id?: string) {
-    data = this.prepareBaseObject(data);
     
     const uniqueRef = data.id ? data.id : this.firestore.createId();
 
